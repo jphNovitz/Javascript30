@@ -1,4 +1,40 @@
 body {
-  background-image: url(https://imgur.com/gallery/gUwUjQU);
+  background-image: url(https://imgur.com/TpZX0qg.png);
   background-size: cover;
+}
+
+.keys {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+
+
+}
+.key {
+  background-color: rgba(0,0,0, .5) ;
+  border: solid 1px #000 ;
+  width: 3em;
+  height: 3em;
+  margin: auto;
+  text-align: center;
+  transition: all 1s;
+}
+
+.key .letter {
+  display: block;
+  color: #fff;
+  font-size: 1.1em
+}
+
+.key .sound {
+  color: yellow;
+  font-size: .7em
+}
+
+.playing {
+  transform: scale(1.2);
+  border: solid 2px yellow;
+  box-shadow: 0 1px yellow
 }
