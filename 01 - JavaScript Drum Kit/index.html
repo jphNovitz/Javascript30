@@ -69,10 +69,21 @@
       console.log(e.keyCode);
       var audio = document.querySelector(`audio[data-key="${e.keyCode}"]`);
       if (!audio) return; // stops if audio is not valid / is null
+      audio.currentTime = 0 ;
       audio.play(audio);
+
       var keydiv = document.querySelector(`div[data-key="${e.keyCode}"]`);
       keydiv.classList.add('playing');
     })
+
+    var keys = document.querySelectorAll('.key');
+    keys.forEach(key => key.addEventListener('transitionend', removeTransion));
+
+    function removeTransion(e){
+      this.classList.remove('playing');
+    }
+
+
   </script>
 </body>
 

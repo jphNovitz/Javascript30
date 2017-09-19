@@ -19,7 +19,7 @@ body {
   height: 3em;
   margin: auto;
   text-align: center;
-  transition: all 1s;
+  transition: all .09s;
 }
 
 .key .letter {
@@ -34,7 +34,7 @@ body {
 }
 
 .playing {
-  transform: scale(1.2);
+  transform: scale(1.1);
   border: solid 2px yellow;
   box-shadow: 0 1px yellow
 }

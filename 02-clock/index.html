@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<!--  Javascript30  - Wes Bos challenge   -->
+<!--  Day 2 :: Javascript Drum Kit        -->
+<!--  Novitz Jean-Philippe (jphnovitz.be) -->
+<!--  hello@jiphi.be                      -->
+<!--  september 2017                      -->
+
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Novitz Jean-Philippe JS Drum Kit</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div id="clock-wrapper">
+  <div id="clock-face">
+  </div>
+  <div id="seconds"> </div>
+  <div id="minutes"> </div>
+</div>
+
+<script>
+function getSeconds(){
+  var sec =  new Date().getSeconds();
+  sec = sec * 6 + 90 ;
+  return `rotate(${sec}deg)`;
+}
+function getMinutes(){
+  var min =  new Date().getMinutes();
+  min = min * 6 + 90 ;
+  return `rotate(${min}deg)`;
+}
+  var seconds = document.getElementById('seconds');
+  var minutes = document.getElementById('minutes');
+
+  setInterval(function () {
+    seconds.style.transform = getSeconds();
+    minutes.style.transform = getMinutes();
+
+  }, 1000)
+</script>
+</body>
