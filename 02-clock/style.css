@@ -3,14 +3,14 @@
 **/
 
 body {
-  background-color: #000;
+  background-color: #fff;
 }
 
 #clock-wrapper {
   position: relative;
   display: block ;
-  width: 200px;
-  min-height: 200px;
+  width: 300px;
+  min-height: 300px;
 
 }
 
@@ -18,17 +18,32 @@ body {
   position: absolute;
   width: 100%;
   min-height: 100%;
-  border: solid #fff 2px;
+  border: solid rgb(240,116,0) 2px;
   border-radius: 50%;
+  background-image: url(logo-clem_00.png);
+  background-size: 100%;
+  background-repeat: no-repeat;
+  background-position: center ;
+
 }
 
 #seconds, #minutes {
 position: absolute;
-  border: solid #fff 1px;
   height: 1px;
-  width: 50%;
-top: 50%;
+  top: 50%;
    right: 50%;
-  width: 48%;
   transform-origin: 100%;
- // transform: rotate(90deg);
+
+}
+
+#seconds{
+  border: solid rgb(240,116,0) 1px;
+  background-color: rgba(240,116,0, .5);
+  width: 48%;
+}
+
+#minutes{
+  border: solid rgb(240,116,0) 2px;
+  background-color: rgba(240,116,0, .5);
+  width: 45%;
+}

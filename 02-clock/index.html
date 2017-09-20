@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <!--  Javascript30  - Wes Bos challenge   -->
-<!--  Day 2 :: Javascript Drum Kit        -->
+<!--  Day 2 :: Javascript Clock        -->
 <!--  Novitz Jean-Philippe (jphnovitz.be) -->
 <!--  hello@jiphi.be                      -->
 <!--  september 2017                      -->
@@ -9,7 +9,7 @@
 
 <head>
   <meta charset="UTF-8">
-  <title>Novitz Jean-Philippe JS Drum Kit</title>
+  <title>Novitz Jean-Philippe JS Clock</title>
   <link rel="stylesheet" href="style.css">
 </head>
 
@@ -33,13 +33,16 @@ function getMinutes(){
   min = min * 6 + 90 ;
   return `rotate(${min}deg)`;
 }
-  var seconds = document.getElementById('seconds');
-  var minutes = document.getElementById('minutes');
+
 
   setInterval(function () {
+    var seconds = document.getElementById('seconds');
     seconds.style.transform = getSeconds();
-    minutes.style.transform = getMinutes();
-
   }, 1000)
+  setInterval(function () {
+      var minutes = document.getElementById('minutes');
+    minutes.style.transform = getMinutes();
+  }, 1000)
+
 </script>
 </body>
