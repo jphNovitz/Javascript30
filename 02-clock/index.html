@@ -14,35 +14,56 @@
 </head>
 
 <body>
-
 <div id="clock-wrapper">
   <div id="clock-face">
   </div>
+  <div id="curtain">
+  </div>
   <div id="seconds"> </div>
   <div id="minutes"> </div>
+  <div id="hours"> </div>
 </div>
 
 <script>
+
+// Get the seconds hands from the function
+// multiply by six because a circle is 360 and a second only 60
+// finaly 90° rotation because 12 is up !
+// the same for minutes and hours
+
+function getHours(){
+
+  var hour =  new Date().getHours();
+  hour = hour * 30 + 90 ;
+  return `rotate(${hour}deg)`;
+}
+
 function getSeconds(){
   var sec =  new Date().getSeconds();
   sec = sec * 6 + 90 ;
   return `rotate(${sec}deg)`;
 }
+
 function getMinutes(){
   var min =  new Date().getMinutes();
   min = min * 6 + 90 ;
   return `rotate(${min}deg)`;
 }
 
+setInterval(function () {
+  var seconds = document.getElementById('seconds');
+  seconds.style.transform = getSeconds();
+}, 1000)
 
-  setInterval(function () {
-    var seconds = document.getElementById('seconds');
-    seconds.style.transform = getSeconds();
-  }, 1000)
-  setInterval(function () {
-      var minutes = document.getElementById('minutes');
-    minutes.style.transform = getMinutes();
-  }, 1000)
+setInterval(function () {
+    var minutes = document.getElementById('minutes');
+  minutes.style.transform = getMinutes();
+}, 2000)
+
+setInterval(function () {
+    var hours = document.getElementById('hours');
+  hours.style.transform = getHours();
+}, 2000)
 
 </script>
 </body>
