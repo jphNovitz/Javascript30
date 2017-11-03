@@ -3,57 +3,81 @@
 <!--  Day 1 :: Javascript Drum Kit        -->
 <!--  Novitz Jean-Philippe (jphnovitz.be) -->
 <!--  hello@jiphi.be                      -->
-<!--  september 2017                      -->
+<!--  november 2017                      -->
 
 <html lang="en">
 
 <head>
   <meta charset="UTF-8">
   <title>Novitz Jean-Philippe JS Drum Kit</title>
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" 
+        rel="stylesheet" 
+        integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" 
+        crossorigin="anonymous">
+  <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet"> 
   <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-
-  <div class="keys">
-    <div data-key="81" class="key">
-      <span class="letter">Q</span>
-      <span class="sound">clap</span>
-    </div>
-    <div data-key="83" class="key">
-      <span class="letter">S</span>
-      <span class="sound">hihat</span>
-    </div>
-    <div data-key="68" class="key">
-      <span class="letter">D</span>
-      <span class="sound">hit</span>
-    </div>
-    <div data-key="70" class="key">
-      <span class="letter">F</span>
-      <span class="sound">openhat</span>
-    </div>
-    <div data-key="71" class="key">
-      <span class="letter">G</span>
-      <span class="sound">boom</span>
-    </div>
-    <div data-key="72" class="key">
-      <span class="letter">H</span>
-      <span class="sound">ride</span>
-    </div>
-    <div data-key="74" class="key">
-      <span class="letter">J</span>
-      <span class="sound">snare</span>
-    </div>
-    <div data-key="75" class="key">
-      <span class="letter">K</span>
-      <span class="sound">tom</span>
-    </div>
-    <div data-key="76" class="key">
-      <span class="letter">L</span>
-      <span class="sound">tink</span>
-    </div>
-
+  <div class="container">
+    <div class="row">
+      <header class="col-lg-12 col-sm-12 text-center">
+        <h1>Javascript 30</h1>
+        <h2>Day 1 : Javascript Drum Kit </h2>
+      </header>
+    <div class="row">
+      <section class="col-lg-10 col-lg-offset-1">
+        <div class="keys">
+          <div data-key="81" class="key">
+            <span class="letter">Q</span>
+            <span class="sound">clap</span>
+          </div>
+          <div data-key="83" class="key">
+            <span class="letter">S</span>
+            <span class="sound">hihat</span>
+          </div>
+          <div data-key="68" class="key">
+            <span class="letter">D</span>
+            <span class="sound">hit</span>
+          </div>
+          <div data-key="70" class="key">
+            <span class="letter">F</span>
+            <span class="sound">openhat</span>
+          </div>
+          <div data-key="71" class="key">
+            <span class="letter">G</span>
+            <span class="sound">boom</span>
+          </div>
+          <div data-key="72" class="key">
+            <span class="letter">H</span>
+            <span class="sound">ride</span>
+          </div>
+          <div data-key="74" class="key">
+            <span class="letter">J</span>
+            <span class="sound">snare</span>
+          </div>
+          <div data-key="75" class="key">
+            <span class="letter">K</span>
+            <span class="sound">tom</span>
+          </div>
+          <div data-key="76" class="key">
+            <span class="letter">L</span>
+            <span class="sound">tink</span>
+          </div>
+        </div>
+      </section>
   </div>
+  <div class="row">
+      <footer class="col-lg-12 text-center">
+        <p>
+          <a href="https://javascript30.com/">Wes Bos ' Javascript 30 : 30 Day Vanilla JS Coding Challenge</a>
+          <br /><strong>Day 1 </strong> - This is my version of 'Javascript Drum Kit'
+          <br />This my <a href="">github repos</a> 
+        </p>
+      </footer>
+  </div>
+
+</div>
 
   <audio data-key="81" src="sounds/clap.wav"></audio>
   <audio data-key="83" src="sounds/hihat.wav"></audio>
