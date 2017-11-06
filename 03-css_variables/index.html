@@ -1,3 +1,9 @@
+<!--  Javascript30  - Wes Bos challenge   -->
+<!--  Day 3 :: css variable               -->
+<!--  Novitz Jean-Philippe (jphnovitz.be) -->
+<!--  hello@jiphi.be  novitz@gmail.com    -->
+<!--  october 2017                        -->
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -22,7 +28,26 @@
 
   <style>
     /*
-      misc styles, nothing to do with CSS variables
+      Code added here
+    */
+    :root {
+      --base: #EB5E00;
+      --spacing: 0px;
+      --blur: 0px;
+
+    }
+
+    .hl {
+      color: var(--base);
+    }
+
+    img {
+      background-color: var(--base);
+      padding: var(--spacing);
+      filter: blur(var(--blur));
+    }
+    /*
+      end code added
     */
     body {
       text-align: center;
@@ -38,9 +63,28 @@
     input {
       width:100px;
     }
+
   </style>
 
   <script>
+   // code added
+    var inputs = document.querySelectorAll(".controls input");
+    
+    inputs.forEach(function (input) {
+      input.addEventListener('change', handleUpdate)
+    })
+    inputs.forEach(function (input) {
+      input.addEventListener('mousemove', handleUpdate)
+    })
+
+    function handleUpdate() {
+      const suffix = this.dataset.sizing || ''
+        // the part || '' is for the 'color value case' --> avoid smthing like #00000 undefined
+      const value = this.value 
+      document.documentElement.style.setProperty(`--${this.name}`,value + suffix)
+    }
+  // end code added
+   
   </script>
 
 </body>
