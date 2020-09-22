@@ -1,19 +1,13 @@
-<!--  Javascript30  - Wes Bos challenge   -->
-<!--  Day 3 :: css variable               -->
-<!--  Novitz Jean-Philippe (jphnovitz.be) -->
-<!--  hello@jiphi.be  novitz@gmail.com    -->
-<!--  october 2017                        -->
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Scoped CSS Variables and JS</title>
+    <meta charset="UTF-8">
+    <title>Scoped CSS Variables and JS</title>
 </head>
 <body>
-  <h2>Update CSS Variables with <span class='hl'>JS</span></h2>
+<h2>Update CSS Variables with <span class='hl'>JS</span></h2>
 
-  <div class="controls">
+<div class="controls">
     <label for="spacing">Spacing:</label>
     <input id="spacing" type="range" name="spacing" min="10" max="200" value="10" data-sizing="px">
 
@@ -21,71 +15,64 @@
     <input id="blur" type="range" name="blur" min="0" max="25" value="10" data-sizing="px">
 
     <label for="base">Base Color</label>
-    <input id="base" type="color" name="base" value="#ffc600">
-  </div>
+    <input id="base" type="color" name="base" value="#FF4500">
+</div>
 
-  <img src="https://source.unsplash.com/7bwQXzbF6KE/800x500">
+<img src="https://source.unsplash.com/7bwQXzbF6KE/800x500"/>
 
-  <style>
+<style>
+
     /*
-      Code added here
+      misc styles, nothing to do with CSS variables
     */
-    :root {
-      --base: #EB5E00;
-      --spacing: 0px;
-      --blur: 0px;
 
+    body {
+        text-align: center;
+        background: #193549;
+        color: white;
+        font-family: 'helvetica neue', sans-serif;
+        font-weight: 100;
+        font-size: 50px;
     }
 
-    .hl {
-      color: var(--base);
+    .controls {
+        margin-bottom: 50px;
+    }
+
+    input {
+        width: 100px;
+    }
+
+    /*
+     My work
+     */
+    :root{
+        --spacing: 10px;
+        --blur: 10px;
+        --base: orangered;
     }
 
     img {
-      background-color: var(--base);
-      padding: var(--spacing);
-      filter: blur(var(--blur));
-    }
-    /*
-      end code added
-    */
-    body {
-      text-align: center;
-      background: #193549;
-      color: white;
-      font-family: 'helvetica neue', sans-serif;
-      font-weight: 100;
-      font-size: 50px;
-    }
-    .controls {
-      margin-bottom: 50px;
-    }
-    input {
-      width:100px;
+        background: var(--base);
+        padding: var(--spacing);
+        filter: blur(var(--blur));
+
     }
 
-  </style>
 
-  <script>
-   // code added
-    var inputs = document.querySelectorAll(".controls input");
-    
-    inputs.forEach(function (input) {
-      input.addEventListener('change', handleUpdate)
-    })
-    inputs.forEach(function (input) {
-      input.addEventListener('mousemove', handleUpdate)
-    })
+</style>
 
-    function handleUpdate() {
-      const suffix = this.dataset.sizing || ''
-        // the part || '' is for the 'color value case' --> avoid smthing like #00000 undefined
-      const value = this.value 
-      document.documentElement.style.setProperty(`--${this.name}`,value + suffix)
-    }
-  // end code added
-   
-  </script>
+<script>
+    const root = document.documentElement;
+    let elements = document.querySelectorAll('.controls input');
+    elements.forEach(element => element.addEventListener('change', function () {
+        //let value = this.value;
+        //let name = this.name;
+        let unit = this.dataset.sizing || '';
+        root.style.setProperty(`--${this.name}`, this.value + unit);
+
+    }));
+</script>
 
 </body>
 </html>
