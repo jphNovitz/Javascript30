@@ -46,7 +46,7 @@
     /*
      My work
      */
-    :root{
+    :root {
         --spacing: 10px;
         --blur: 10px;
         --base: orangered;
@@ -66,11 +66,8 @@
     const root = document.documentElement;
     let elements = document.querySelectorAll('.controls input');
     elements.forEach(element => element.addEventListener('change', function () {
-        //let value = this.value;
-        //let name = this.name;
         let unit = this.dataset.sizing || '';
         root.style.setProperty(`--${this.name}`, this.value + unit);
-
     }));
 </script>
 
