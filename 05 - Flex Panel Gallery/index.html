@@ -1,3 +1,5 @@
+<!-- @JphNovitz (Novitz Jean-Philippe) -->
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -80,12 +82,15 @@
     .panel > *:first-child {
         transform: translateY(-100%);
     }
+
     .panel.open-active > *:first-child {
         transform: translateY(0%);
     }
+
     .panel > *:last-child {
         transform: translateY(100%);
     }
+
     .panel.open-active > *:last-child {
         transform: translateY(0%);
     }
@@ -140,9 +145,19 @@
 <script>
 
     let elements = document.querySelectorAll('.panel');
-    elements.forEach(element => element.addEventListener('click', function(){
-       this.classList.toggle('open');
-       this.classList.toggle('open-active');
+    elements.forEach(element => element.addEventListener('click', ()=>{
+        this.classList.toggle('open');
+    }
+    ))
+
+    elements.forEach(element => element.addEventListener('transitionend', (e) => {
+        // conditon nécessaire car j'ai 2 transition et donc j'ajoute et je j'enlève
+        // ici je n'ajaoute ou n'enlève que sur la transition qui contient 'flex'
+
+        if (e.propertyName.includes('flex')) {
+            this.classList.toggle('open-active');
+        }
+
     }))
 </script>
 
