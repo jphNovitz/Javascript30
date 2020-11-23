@@ -1,0 +1,73 @@
+<!--  Javascript30  - Wes Bos challenge           -->
+<!--  Day 8 :: Javascript Fun with html 5 canvas  -->
+<!--  Novitz Jean-Philippe (jphnovitz.be)         -->
+<!--  hello@jphNovitz.be                          -->
+<!--  september 2020                              -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>HTML5 Canvas</title>
+</head>
+<body>
+<h1>Javascript 30</h1>
+<h2>Fun with HTML5 canvas</h2>
+<canvas id="draw" width="800" height="800"></canvas>
+<script>
+    const canvas = document.querySelector('#draw');
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+
+    var ctx = canvas.getContext('2d');
+    ctx.lineWidth = 25;
+    let x = 0;
+    let y = 0;
+    let isDrawing = false;
+    canvas.addEventListener('mouseover', () => isDrawing = false);
+    canvas.addEventListener('mouseout', () => isDrawing = false);
+    canvas.addEventListener('mousedown', (e) => {
+        isDrawing = true;
+        x = e.offsetX;
+        y = e.offsetY;
+    });
+    canvas.addEventListener('mouseup', (e) => {
+        isDrawing = false;
+    });
+    canvas.addEventListener('mousemove', (e) => {
+        draw(e);
+    });
+
+
+    function draw(e) {
+        if (isDrawing) {
+            ctx.beginPath();
+            ctx.lineCap = 'round';
+            let color = rndColor();
+            ctx.fillStyle = `rgb(${color[0]}, ${color[1]}, ${color[2]})`;
+            ctx.strokeStyle = `rgb(${color[0]}, ${color[1]}, ${color[2]})`;
+            ctx.moveTo(e.offsetX, e.offsetY);
+            ctx.lineTo(x, y);
+            ctx.stroke();
+            x = e.offsetX;
+            y = e.offsetY;
+        }
+    }
+
+    function rndColor() {
+        let colorCodes = [];
+        for (i = 0; i <= 2; i++) {
+            colorCodes.push(Math.floor(Math.random() * 255));
+        }
+        return colorCodes;
+    }
+</script>
+
+<style>
+    html, body {
+        margin: 0;
+    }
+</style>
+
+</body>
+</html>

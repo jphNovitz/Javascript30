@@ -1,0 +1,61 @@
+#container {
+    width: 98%;
+    margin: auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+    flex-wrap: wrap;
+
+}
+
+#container h1, h2{
+    display: flex;
+    flex: 0 0 100%;
+}
+
+.text-center{
+    justify-content: center;
+}
+
+#content{
+    flex: 0 0 100%;
+}
+
+#cards {
+    margin-left: 15px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    flex: 1;
+    flex-wrap: wrap;
+    
+}
+
+.card {
+    display: flex;
+    flex: 0 0 33%;
+    height: 50vw;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    align-items: last baseline;
+}
+
+.card .caption{
+    background-color: rgba(255, 255, 255, .8);
+    flex: 0 0 100%;
+    height: max-content;
+    padding: 1rem;
+}
+
+@media screen and (min-width: 1200px) {
+    #container {
+        max-width: 1180px;
+    }
+
+
+.card {
+    display: flex;
+    flex: 0 0 24%;
+}
+  }
